@@ -1,0 +1,48 @@
+
+/*  selector    {   sub-attribute: value  }
+        p    {   color: red;  }     .. every instce of the sspecific tag.
+        #id_ {   color: red;  }     .. the object with the specific ID.
+        .class {   color: red;  }   .. all objects with the specific class.
+
+        hexadecimal color coding   .. 0 -> 9 -> A -> F .
+        color: #000         .. basic    .. red, green, blue, etc.
+        color: #000+ max x8 .. expanded .. shades and mixes of all variety.
+
+        Distances (border, padding, etc.): top, right, bottom, left.
+*/
+
+body {
+    padding-bottom: 35px;
+    margin: 0;
+}
+
+header {
+	padding: 5px;    /*  top, right, bottom, left  */
+	min-height: 75px;
+}
+
+h2 {
+    margin: 5px 0 5px;
+	padding: 5px 40px 0 100px;
+	float: left;
+    width: 500px;
+    text-align: center;
+}
+
+#summary {
+    margin: 0 5px 5px 5px;
+    padding: 40px 40px 0 25px;    /*  top, right, bottom, left  */
+    color: #eb0c5ac9;
+	text-align: right;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkgray;
+    margin: 5px 0 0 0 ;
+    padding: 10px 5px 5px 10px;    /*  top, right, bottom, left  */
+    text-align: center;
+}

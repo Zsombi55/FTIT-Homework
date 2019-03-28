@@ -98,6 +98,7 @@ var employees = [
     }
 ];
 
+console.log("--- TASK 1 ---");
 // TASK 1.) Create a function that returns only the firstName of each person.
 function collectFirstName(employees) {
     console.info("employees: ", employees);
@@ -117,56 +118,54 @@ function collectFirstName(employees) {
 }
 collectFirstName(employees);
 
+console.log("--- TASK 2 ---");
 // TASK 2.) Create a function that calculates the average female salary. Log the result in the console.
+var femEmp, malEmp = [];
+
 function calculateAverageSalary(employees) {
 	var sum, count = 0;
-	var salaries = [];
+	var femSal = [];
 	
-	employees.forEach(/*your code here*/ function(employee, i) {
+	employees.forEach(/*your code here*/ function(employee, i) {	// array element, element index, array
 		var x = employee.gender;
-		console.info("genders", x);
-		if (Object.keys(employees).gender == "female") {
-			salaries = employees.map(function(employee) {
-				for (var i = 0; i < employees.length; i++) {
-					return employee[Object.keys(employee).salary];
-				}
-			});
+		
+		femEmp = employees.filter(employee => employee.gender == "Female");
+		
+		
+		if (employee.gender == "Female") {
+			femSal = femEmp.map(emp => emp.salary);
 			count++;
 		}
 	});
 	
-	console.info("salaries", salaries);
-	console.info("fem sal count", count);
+	var f = (femSal.map(function(i) { // onverted all array elements into a floating point numbers
+		return parseFloat(i);
+	}));
+	sum = f.reduce(function(a, b) { // sum all resulting numbers
+		return (a + b)
+	});
 	
-	/* for (var i = 0; i < employees.length; i++) {
-		var femEmp = employees.filter(employees => employees.gender === "female");
-		var femSal = femEmp.map(function (femE, index) {
-			femEmp.map(femEmp.salary)
-		});
-		
-		console.info("female Emp.", femEmp);
-		console.info("sum", femSal[index]);
-	}; */
+	console.info("fE", femEmp);
+	console.info("fem count", count);
+	console.info("salaries", femSal);
+	console.info("sal sum", sum);
 	
-	/* for( var i = 0; i < femSal.length; i++ ){
-		sum += parseFloat( femSal[i], 10 );
-	} */
-	
-	//return /* average */ sum / femSal.length;
+	return /* average */ sum / femSal.length;
 }
-calculateAverageSalary(employees);
-// var average = calculateAverageSalary(employees);
-// console.log("average", average);
 
+//calculateAverageSalary(employees);
+var average = calculateAverageSalary(employees);
+console.log("average", average);
 
-
-
-// TASK 3.) As always, create a function that return 2 arrays, one of male and the other of female employees.
-// function splitEmployees(employees) {
-    // /* your code here: */
-    // /* hint: maybe use array filter */
-// }
-// splitEmployees(employees);
+console.log("--- TASK 3 ---");
+// TASK 3.) Create a function that returns 2 arrays, one of male and the other of female employees.
+function splitEmployees(employees) {
+    /* your code here: */
+	malEmp = employees.filter(employee => employee.gender == "Male");
+	
+	return [femEmp, malEmp];	// the easiest way to simulate returning multiple things at once in JS.
+}
+splitEmployees(employees);
 
 // TASK 4.) Bonus! Convert the employee array into an object. Each key of that object should be the employee lastName.
 //the object should look like this:

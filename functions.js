@@ -165,29 +165,34 @@ function splitEmployees(employees) {
 	
 	return [femEmp, malEmp];	// the easiest way to simulate returning multiple things at once in JS.
 }
-splitEmployees(employees);
+//splitEmployees(employees);
+var sepGen = splitEmployees(employees);
+console.log("sep gen", sepGen);
 
-// TASK 4.) Bonus! Convert the employee array into an object. Each key of that object should be the employee lastName.
+console.log("--- TASK 4 ---");
+// TASK 4.) Convert the employee array into an object. Each key of that object should be the employee lastName.
 //the object should look like this:
-// var converted = {
-    // Coon: {
-        // id: 1,
-        // firstName: "Solly",
-        // lastName: "Coon",
-        // email: "scoon0@miitbeian.gov.cn",
-        // gender: "Male",
-        // salary: "293.27"
-    // },
-    // Clissold: {
-        // id: 2,
-        // firstName: "Myron",
-        // lastName: "Clissold",
-        // email: "mclissold1@over-blog.com",
-        // gender: "Male",
-        // salary: "463.44"
-    // }
-    // and so on....
-// };
-
-
+/* var converted = {	// object, tier 1
+		Coon: {				// tier 1 property ,, object, tier 2
+			id: 1,				// tier 2 property
+			firstName: "Solly",
+			lastName: "Coon",
+			email: "scoon0@miitbeian.gov.cn",
+			gender: "Male",
+			salary: "293.27"
+		},
+    etc..
+}; */
+function convetToObj(employees) {
+	Object.assign({}, employees);
+	
+	// -- "employees" is an array of arrays, so could just perform a double iteration to build the object array of objects.
+	// -- or iterate the array and make a new object with other objects as properties each of them "named" by 
+	//	the array elements' 3rd ID, while their properties are the same as that of the array's objects.
+		
+	var key = "name";
+    var person = {[key]:"John"};
+    console.log(person); // should print  Object { name="John"}
+}
+convetToObj(employees);
 

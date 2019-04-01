@@ -111,6 +111,17 @@ function collectFirstName(employees) {
 			return employee[Object.keys(employee)[1]];
 		}
     });
+	/* -- OR --
+	var firstNames = employees.map(function(employee) {
+        TODO - return firstName
+		return employee.firstName;
+    });
+	// -- OR --
+	function collectNames(employees) {
+		return employees.map(function(employee) {
+			return employee.firstName;
+		});
+	}*/
     //TODO - log firstNames
 	console.log(firstNames);
     //TODO - return firstNames
@@ -190,9 +201,24 @@ function convetToObj(employees) {
 	// -- or iterate the array and make a new object with other objects as properties each of them "named" by 
 	//	the array elements' 3rd ID, while their properties are the same as that of the array's objects.
 		
-	var key = "name";
+	// -- return {sal: employee.salary, gen: employee.gender} ... something like this maybe.
+	/* var key = "name";
     var person = {[key]:"John"};
     console.log(person); // should print  Object { name="John"}
+// -- OR --
+	var objb = {};
+	obj["con"] = "eg";
+	>> obj // retutns ... obj: {con: {eg}} */
+	
+	// -- ONE Solution (by instructor), to read up on. --
+	/* var converted = employees.reduce(function (accumulator, currentEmp) {
+		console.log("accumulator", accumulator);
+		console.log("currentEmp", currentEmp);
+		accumulator[currentEmp.lastName] = currentEmp;
+	//	return accumulator;
+	//}, 0);
+	return accumulator;
+	}, {}); // the item after the function is the "initial value" */
 }
 convetToObj(employees);
 
